@@ -90,6 +90,7 @@ class QueryViewController: UITableViewController {
             let detailsVC = segue.destination as! EventDetailsViewController
                         
             detailsVC.key_dbn = item["dbn"]! as! String
+            detailsVC.key_name = item["school_name"]! as! String
             
         }
     }

@@ -15,6 +15,7 @@ class EventDetailsViewController: UITableViewController {
     let sat_dataset = "f9bf-2cp4"
     // not used anymore var sat_data: [[String: Any]]! = []
     var key_dbn = "--"
+    var key_name = "--"
 
     var eventDictionary: [String : Any]? = nil {
         didSet {
@@ -58,6 +59,10 @@ class EventDetailsViewController: UITableViewController {
                     self.eventDictionary = data[0]
                     self.setSATInfo()
                 }
+                else {
+                    self.lblName.text = self.key_name
+                    self.lblDBN.text = self.key_dbn
+                }
                 
             case .error (let err):
                 let errorMessage = (err as NSError).userInfo.debugDescription
@@ -92,20 +97,20 @@ class EventDetailsViewController: UITableViewController {
                 lblName.text = item.value as! String
                 break;
             case "dbn":
-            lblDBN.text = item.value as! String
-            break;
+                lblDBN.text = item.value as! String
+                break;
             case "num_of_sat_test_takers":
-            lblNumTestTakers.text = item.value as! String
-            break;
+                lblNumTestTakers.text = item.value as! String
+                break;
             case "sat_critical_reading_avg_score":
-            lblReading.text = item.value as! String
-            break;
+                lblReading.text = item.value as! String
+                break;
             case "sat_writing_avg_score":
-            lblWriting.text = item.value as! String
-            break;
+                lblWriting.text = item.value as! String
+                break;
             case "sat_math_avg_score":
-            lblMath.text = item.value as! String
-            break;
+                lblMath.text = item.value as! String
+                break;
             default :
                 lblName.text = "No info available"
             }
